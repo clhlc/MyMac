@@ -1,0 +1,18 @@
+Host *
+  TCPKeepAlive yes
+  ServerAliveInterval 10
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+  Compression yes
+  ControlMaster auto
+  ControlPath  ~/.ssh/sockets/%C
+  ControlPersist yes
+  ControlPersist 24h
+
+Include config.d/*
+
+Host github.com
+  HostName github.com
+  Port 22
+  User git
+  ProxyCommand nc -X 5 -x 127.0.0.1:7890 %h %p
