@@ -96,7 +96,7 @@ function steeef_precmd {
         PR_GIT_UPDATE=
     fi
 }
-add-zsh-hook precmd steeef_precmd
+add-zsh-hook steeef_precmd
 
 # 获取当前集群名称的函数
 get_current_cluster() {
@@ -115,7 +115,7 @@ update_k8s_info() {
 }
 
 # 右边
-RPROMPT='%{$fg_bold[red]%}$CURRENT_CLUSTER%{$reset_color%}'
+#RPROMPT='%{$fg_bold[red]%}$CURRENT_CLUSTER%{$reset_color%}'
 
 # 左边
 PROMPT=$'
@@ -123,6 +123,6 @@ PROMPT=$'
 %(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜) '
 
 # 在每次显示提示符之前更新集群信息
-precmd() {
-    update_k8s_info
-}
+#precmd() {
+#    update_k8s_info
+#}
